@@ -2,7 +2,7 @@
 
 An embedded safety and security network for motorcycles utilizing low-latency ESP-NOW communication. This system prevents a bike's ignition from starting unless the rider is wearing a helmet and is verified sober. It also features automatic engine cutoff and audible/visual alerts if an accident or impact occurs.
 
-##Hardware Components
+## Hardware Components
 * **Microcontrollers:** 2x ESP32 Dev Kits (NodeMCU)
 * **Helmet Unit Sensors:** 
   * HC-SR04 Ultrasonic Sensor (Helmet detection)
@@ -12,16 +12,6 @@ An embedded safety and security network for motorcycles utilizing low-latency ES
   * 16x2 I2C LCD Display (Diagnostic HUD)
   * Active-Low 5V Relay Module (Ignition Interlock Motor)
   * 5V Piezo Buzzer (Emergency siren)
-
- Project Architecture & Working Principle
-
-The system split-executes across two dedicated hardware units communicating via peer-to-peer **ESP-NOW** protocols on a unified data structure:
-
-  +-----------------------+                    +--------------------+
-  |      HELMET UNIT      |                    |     BIKE UNIT      |
-  |  (Ultrasonic + MQ3    | --[ ESP-NOW Packet ]--> (Relay Interlock|
-  |     + MPU6050 IMU)    |                    |   + 16x2 I2C LCD)  |
-  +-----------------------+                    +--------------------+
 
   THE WHOLE LOGIC
   1. Helmet Side (Transmitter Logic)
